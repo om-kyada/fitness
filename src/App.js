@@ -1,5 +1,4 @@
-import "./App.css";
-import Barchart from "./shared/components/charts/chart";
+import "./assets/styles/common.css";
 import Dashboard from "./features/dashboard/container/dashboard";
 
 function App() {
@@ -7,7 +6,6 @@ function App() {
   return (
     <>
       <Dashboard />
-      <Barchart />
     </>
   );
 }

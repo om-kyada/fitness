@@ -25,6 +25,7 @@ const jsonData = {
                 "best": 6.5
             },
             "elevation_gain": 80
+
         },
         {
             "id": "activity_2",
@@ -62,7 +63,7 @@ const jsonData = {
             "weight_lifted": {
                 "total": 2000,
                 "average_per_rep": 16.7
-            }
+            },
         },
         {
             "id": "activity_4",

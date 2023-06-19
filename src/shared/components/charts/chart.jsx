@@ -1,6 +1,7 @@
 import records from '../../../assets/json/records'
+import '../../../assets/styles/common.css'
 
-import React from 'react';
+// import React, { useState } from 'react';
 import {
     Chart as chartJS,
     BarElement,
@@ -9,6 +10,7 @@ import {
     Tooltip,
     Legend,
 } from "chart.js";
+
 import { Bar } from "react-chartjs-2";
 chartJS.register(
     BarElement,
@@ -18,45 +20,47 @@ chartJS.register(
     Legend
 );
 
-console.log(records)
-let dateArray = []
+let activities = []
+let caloriesBurned = []
 let heartAverage = []
-let heartMax = []
 
-records.activities.map((date) => {
-    dateArray.push(date.date)
+records.activities.forEach((date) => {
+    activities.push(date.name)
+    caloriesBurned.push(date.calories_burned)
     heartAverage.push(date.heart_rate.average)
-    heartMax.push(date.heart_rate.max)
 })
-console.log(dateArray)
 const options = {
-    responsive: true,
     plugins: {
         legend: {
-            position: "top"
+            position: "top",
+            backgroundColor: "rgba(255, 99, 132, 0.5)"
         }
     }
 };
-const date = dateArray
-// const date =   
-
+const date = activities
 const data = {
-    labels: date
-    ,
+    labels: date,
     datasets: [
         {
-            label: "Heart Average",
-            data: heartAverage,
+            label: "Calories",
+            data: caloriesBurned,
             backgroundColor: "rgba(255, 99, 132, 0.5)"
         },
         {
-            label: "Heart Max",
-            data: heartMax,
-            backgroundColor: "rgba(53, 162, 235, 0.5)"
+            label: "Heart Rate",
+            data: heartAverage,
+            backgroundColor: "rgba(22, 58, 184,53%)"
         }
     ]
 };
-function Barchart() {
-    return (<Bar options={options} data={data} />)
+
+function BarChart() {
+
+
+    return (
+        <div className="chart-container">
+            <Bar options={options} data={data} />
+        </div>
+    )
 }
-export default Barchart;
+export default BarChart;

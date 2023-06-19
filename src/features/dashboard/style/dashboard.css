@@ -1,5 +1,165 @@
-P {
-  font-size: 10px;
+.fitness-container {
+  width: 100%;
+  height: 100vh;
+  background-color: #eaeaea;
 }
-
-/*# sourceMappingURL=dashboard.css.map */
+.fitness-container header {
+  padding: 7px 30px;
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.fitness-container header .header-left-content {
+  width: 50%;
+  display: flex;
+  justify-content: flex-start;
+}
+.fitness-container header .header-left-content h1 {
+  letter-spacing: 1px;
+  font-size: 50px;
+}
+.fitness-container header .header-right-content {
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+}
+.fitness-container header .header-right-content .user-content {
+  box-shadow: 0px 0px 59px #c6bebe;
+  padding: 15px 30px;
+  display: flex;
+  -moz-column-gap: 15px;
+       column-gap: 15px;
+  justify-content: center;
+  align-items: center;
+  width: -moz-fit-content;
+  width: fit-content;
+  background-color: #fff;
+  border-radius: 17px;
+}
+.fitness-container header .header-right-content .user-content .user-photo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.fitness-container header .header-right-content .user-content .user-photo img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.fitness-container header .header-right-content .user-content .user-detail {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+.fitness-container header .header-right-content .user-content .user-detail .user-name {
+  font-weight: bold;
+}
+.fitness-container .grid-container {
+  display: grid;
+  padding: 15px 30px;
+  margin: 0 auto;
+  grid-template-columns: repeat(auto-fill, minmax(auto, 1fr));
+  gap: 30px;
+}
+.fitness-container .grid-container .user-age-detail {
+  box-shadow: 0px 0px 59px #c6bebe;
+  display: flex;
+  align-items: center;
+  height: 60px;
+  justify-content: space-between;
+  padding: 15px 30px;
+  border-radius: 17px;
+  background-color: #fff;
+}
+.fitness-container .grid-container .user-age-detail .user-age {
+  font-size: 20px;
+}
+.fitness-container .grid-container .user-age-detail .age-detail {
+  font-size: 20px;
+}
+.fitness-container .grid-container .user-height-detail {
+  box-shadow: 0px 0px 59px #c6bebe;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  padding: 15px 30px;
+  border-radius: 17px;
+  background-color: #fff;
+}
+.fitness-container .grid-container .user-height-detail .user-height {
+  font-size: 20px;
+}
+.fitness-container .grid-container .user-height-detail .height-detail {
+  font-size: 20px;
+}
+.fitness-container .grid-container .user-weight-detail {
+  box-shadow: 0px 0px 59px #c6bebe;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  padding: 15px 30px;
+  border-radius: 17px;
+  background-color: #fff;
+}
+.fitness-container .grid-container .user-weight-detail .user-weight {
+  font-size: 20px;
+}
+.fitness-container .grid-container .user-weight-detail .weight-detail {
+  font-size: 20px;
+}
+.fitness-container .grid-container .user-activitys {
+  box-shadow: 0px 0px 59px #c6bebe;
+  grid-area: 1/4/3/5;
+  overflow-y: scroll;
+  height: 470px;
+  display: flex;
+  flex-direction: column;
+  padding: 15px 30px;
+  border-radius: 17px;
+  background-color: #fff;
+}
+.fitness-container .grid-container .user-activitys .activity {
+  padding: 15PX 0PX;
+  border-bottom: 2px solid #eaeaea;
+}
+.fitness-container .grid-container .user-activitys .activity:last-child {
+  border-bottom: none;
+}
+.fitness-container .grid-container .user-activitys .activity .activity-detail {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.fitness-container .grid-container .user-activitys .activity .activity-detail .user-activity-name {
+  font-size: 20px;
+}
+.fitness-container .grid-container .user-activitys .activity .activity-detail .user-activity-timing {
+  font-size: 20px;
+}
+.fitness-container .grid-container .user-activitys .activity .all-detail {
+  transform: scaleX(10px);
+  transition: 0.5s;
+}
+.fitness-container .grid-container .user-activitys .activity .all-detail ul .user-activity-all-detail {
+  font-size: 19px;
+  list-style: none;
+  margin: 0px 30px;
+}
+.fitness-container .grid-container .user-activitys .activity .all-detail ul .user-activity-all-detail p span {
+  font-weight: 600;
+}
+.fitness-container .grid-container .chart {
+  box-shadow: 0px 0px 59px #c6bebe;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 17px;
+  background-color: #fff;
+  grid-column: 1/4;
+}
+.fitness-container .grid-container .chart canvas {
+  width: 100% !important;
+}/*# sourceMappingURL=dashboard.css.map */
