@@ -38,7 +38,7 @@ function Dashboard() {
             <div className='grid-container'>
                 <div className="user-age-detail">
                     <p className="user-age">AGE: </p>
-                    <p className="age-detail">{data.user.age}</p>
+                    <p className="age-detail">{data.user.age} year</p>
                 </div>
 
                 <div className="user-height-detail">
