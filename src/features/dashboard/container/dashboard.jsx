@@ -1,9 +1,12 @@
+import { useState } from 'react';
+
 import '../style/dashboard.css'
 import '../style/dashboard-responsive.css'
+
 import userImg from '../../../assets/images/john-doe.jpg'
+
 import data from '../../../assets/json/records'
 import BarChart from '../../../shared/components/charts/chart';
-import { useState } from 'react';
 
 function Dashboard() {
 
