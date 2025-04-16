@@ -123,7 +123,7 @@
   background-color: #fff;
 }
 .fitness-container .grid-container .user-activitys .activity {
-  padding: 15PX 0PX;
+  padding: 15px 0px;
   border-bottom: 2px solid #eaeaea;
 }
 .fitness-container .grid-container .user-activitys .activity:last-child {
@@ -159,7 +159,4 @@
   border-radius: 17px;
   background-color: #fff;
   grid-column: 1/4;
-}
-.fitness-container .grid-container .chart canvas {
-  width: 100% !important;
 }/*# sourceMappingURL=dashboard.css.map */
