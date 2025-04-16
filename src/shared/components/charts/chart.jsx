@@ -23,11 +23,12 @@ chartJS.register(
 let activities = []
 let caloriesBurned = []
 let heartAverage = []
-
-records.activities.forEach((date) => {
-    activities.push(date.name)
-    caloriesBurned.push(date.calories_burned)
-    heartAverage.push(date.heart_rate.average)
+let walking = []
+records.activities.forEach(({ name, calories_burned, heart_rate, steps }) => {
+    activities.push(name)
+    caloriesBurned.push(calories_burned)
+    heartAverage.push(heart_rate.average)
+    walking.push(steps)
 })
 const options = {
     plugins: {
@@ -53,7 +54,6 @@ const data = {
         }
     ]
 };
-
 function BarChart() {
 
 
