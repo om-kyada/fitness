@@ -54,8 +54,6 @@ const data = {
         }
     ]
 };
-console.log(records);
-
 function BarChart() {
 
 
