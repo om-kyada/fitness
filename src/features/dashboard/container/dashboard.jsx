@@ -1,15 +1,14 @@
 import { useState } from 'react';
-
-import '../style/dashboard.css'
-import records from '../../../assets/json/records'
-import '../style/dashboard-responsive.css'
-
 import userImg from '../../../assets/images/john-doe.jpg'
 
-import data from '../../../assets/json/records'
 import FittedStockBarChart from '../../../shared/components/stockChart/stockChart';
 import ResponsiveChartWrapper from '../../../shared/components/stockChart/responsiveChartWrapper';
 import BarChart from '../../../shared/components/charts/chart';
+
+import data from '../../../assets/json/records'
+import '../style/dashboard.css'
+import records from '../../../assets/json/records'
+import '../style/dashboard-responsive.css'
 
 const transformedData = records.activities.map(({ name, calories_burned, heart_rate, steps }) => ({
     x: name,
@@ -190,8 +189,6 @@ function Dashboard() {
                 <div className="chart">
                     <BarChart />
                     <ResponsiveChartWrapper>
-
-                        {/* {transformedData.length > 0 && <FittedStockBarChart width={width} ratio={1} data={transformedData} />} */}
                         {(width) => <FittedStockBarChart width={width} ratio={1} data={transformedData} />}
                     </ResponsiveChartWrapper>
                 </div>
