@@ -1,66 +1,72 @@
-import records from '../../../assets/json/records'
-import '../../../assets/styles/common.css'
-
-// import React, { useState } from 'react';
+import React from 'react';
 import {
-    Chart as chartJS,
-    BarElement,
+    Chart as ChartJS,
     CategoryScale,
-    LinearScale, // y
+    LinearScale,
+    BarElement,
+    Title,
     Tooltip,
     Legend,
-} from "chart.js";
+} from 'chart.js';
+import { Bar } from 'react-chartjs-2';
+import records from '../../../assets/json/records';
+import '../../../assets/styles/common.css';
 
-import { Bar } from "react-chartjs-2";
-chartJS.register(
-    BarElement,
+// Register ChartJS components
+ChartJS.register(
     CategoryScale,
-    LinearScale, // y
+    LinearScale,
+    BarElement,
+    Title,
     Tooltip,
     Legend
 );
 
-let activities = []
-let caloriesBurned = []
-let heartAverage = []
-let walking = []
-records.activities.forEach(({ name, calories_burned, heart_rate, steps }) => {
-    activities.push(name)
-    caloriesBurned.push(calories_burned)
-    heartAverage.push(heart_rate.average)
-    walking.push(steps)
-})
 const options = {
+    responsive: true,
     plugins: {
         legend: {
-            position: "top",
-            backgroundColor: "rgba(255, 99, 132, 0.5)"
-        }
-    }
-};
-const date = activities
-const data = {
-    labels: date,
-    datasets: [
-        {
-            label: "Calories",
-            data: caloriesBurned,
-            backgroundColor: "rgba(255, 99, 132, 0.5)"
+            position: 'top',
         },
-        {
-            label: "Heart Rate",
-            data: heartAverage,
-            backgroundColor: "rgba(22, 58, 184,53%)"
-        }
-    ]
+        title: {
+            display: true,
+            text: 'Activity Statistics',
+        },
+    },
+    scales: {
+        y: {
+            beginAtZero: true,
+        },
+    },
 };
-function BarChart() {
 
+const BarChart = () => {
+    const data = {
+        labels: records.activities.map(activity => activity.name),
+        datasets: [
+            {
+                label: 'Calories Burned',
+                data: records.activities.map(activity => activity.calories_burned),
+                backgroundColor: 'rgba(255, 99, 132, 0.5)',
+            },
+            {
+                label: 'Heart Rate (Avg)',
+                data: records.activities.map(activity => activity.heart_rate?.average || 0),
+                backgroundColor: 'rgba(53, 162, 235, 0.5)',
+            },
+            {
+                label: 'Steps',
+                data: records.activities.map(activity => activity.steps || 0),
+                backgroundColor: 'rgba(75, 192, 192, 0.5)',
+            },
+        ],
+    };
 
     return (
-        <div className="chart-container">
+        <div style={{ padding: '20px', width: '100%' }}>
             <Bar options={options} data={data} />
         </div>
-    )
-}
+    );
+};
+
 export default BarChart;

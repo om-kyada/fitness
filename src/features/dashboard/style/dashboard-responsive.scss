@@ -1,46 +1,107 @@
-@media only screen and (max-width: 1000px) {
-    .fitness-container {
-        height: 100%;
+// Variables
+$tablet-breakpoint: 768px;
+$mobile-breakpoint: 480px;
 
+// Responsive Styles
+@media (max-width: $tablet-breakpoint) {
+    .fitness-container {
         header {
-            padding: 15px;
+            .header-left-content {
+                h1 {
+                    font-size: 40px;
+                }
+            }
+
+            .header-right-content {
+                .user-content {
+                    padding: 10px 20px;
+
+                    .user-photo {
+                        width: 40px;
+                        height: 40px;
+                    }
+                }
+            }
+        }
+
+        .grid-container {
+            padding: 10px 20px;
+            gap: 20px;
+
+            .user-age-detail,
+            .user-height-detail,
+            .user-weight-detail {
+                padding: 10px 20px;
+                height: 50px;
+
+                .user-age,
+                .user-height,
+                .user-weight,
+                .age-detail,
+                .height-detail,
+                .weight-detail {
+                    font-size: 16px;
+                }
+            }
+
+            .user-activitys {
+                padding: 10px 20px;
+                height: 400px;
+
+                .activity {
+                    .activity-detail {
+                        .user-activity-name,
+                        .user-activity-timing {
+                            font-size: 16px;
+                        }
+                    }
+
+                    .all-detail {
+                        ul {
+                            .user-activity-all-detail {
+                                font-size: 14px;
+                                margin: 0px 20px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: $mobile-breakpoint) {
+    .fitness-container {
+        header {
+            flex-direction: column;
+            padding: 10px;
+
+            .header-left-content,
+            .header-right-content {
+                width: 100%;
+                justify-content: center;
+                margin-bottom: 10px;
+            }
 
             .header-left-content {
                 h1 {
                     font-size: 30px;
                 }
             }
-
-            .header-right-content {
-                .user-content {
-                    padding: 10px;
-                    column-gap: 9px;
-
-                    .user-detail {
-                        font-size: 14px;
-                        row-gap: 1px;
-                    }
-
-                }
-            }
         }
 
         .grid-container {
+            grid-template-columns: 1fr;
             padding: 10px;
-            gap: 15px;
-            display: flex;
-            flex-direction: column;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
 
             .user-activitys {
-                grid-area: 3/1/3/4;
+                grid-area: auto;
+                height: 300px;
             }
 
             .chart {
-                .chart-container {
-                    height: 100%;
-                    padding: 10px;
-                }
+                grid-column: auto;
+                min-width: none;
             }
         }
     }

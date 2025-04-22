@@ -1,0 +1,50 @@
+// Variables
+$tablet-breakpoint: 768px;
+$mobile-breakpoint: 480px;
+
+// Responsive Styles
+@media (max-width: $tablet-breakpoint) {
+    .login-container {
+        .login-box {
+            padding: 30px 20px;
+
+            h1 {
+                font-size: 20px;
+            }
+
+            .subtitle {
+                font-size: 12px;
+            }
+
+            .form-group {
+                input {
+                    padding: 10px;
+                }
+            }
+
+            .login-button {
+                padding: 10px;
+            }
+        }
+    }
+}
+
+@media (max-width: $mobile-breakpoint) {
+    .login-container {
+        padding: 10px;
+
+        .login-box {
+            padding: 20px 15px;
+
+            .form-group {
+                label {
+                    font-size: 12px;
+                }
+            }
+
+            .additional-options {
+                font-size: 12px;
+            }
+        }
+    }
+} 

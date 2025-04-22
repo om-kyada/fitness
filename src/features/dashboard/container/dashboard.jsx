@@ -1,14 +1,17 @@
 import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import userImg from '../../../assets/images/john-doe.jpg'
+import useAuthStore from '../../../shared/store/authStore';
 
 import FittedStockBarChart from '../../../shared/components/stockChart/stockChart';
 import ResponsiveChartWrapper from '../../../shared/components/stockChart/responsiveChartWrapper';
 import BarChart from '../../../shared/components/charts/chart';
 
 import data from '../../../assets/json/records'
-import '../style/dashboard.css'
+import '../style/dashboard.scss'
 import records from '../../../assets/json/records'
-import '../style/dashboard-responsive.css'
+import '../style/dashboard-responsive.scss'
+import { LogoutIcon } from '../../../shared/components/icons/icons';
 
 const transformedData = records.activities.map(({ name, calories_burned, heart_rate, steps }) => ({
     x: name,
@@ -17,9 +20,15 @@ const transformedData = records.activities.map(({ name, calories_burned, heart_r
     y3: steps || 0,  // or whatever the second metric is
 }));
 
-
 function Dashboard() {
+    const history = useHistory();
+    const logout = useAuthStore((state) => state.logout);
     const [activityId, setActivityId] = useState('')
+
+    const handleLogout = () => {
+        logout();
+        history.push('/');
+    };
 
     return (
         <div className="fitness-container">
@@ -41,6 +50,9 @@ function Dashboard() {
                             <p className="user-email">{data.user.email}</p>
                         </div>
                     </div>
+                    <button onClick={handleLogout} className="logout-button">
+                        Logout <LogoutIcon />
+                    </button>
                 </div>
             </header>
 
@@ -65,7 +77,9 @@ function Dashboard() {
                     {
                         data.activities?.map((data) => {
                             return (
-                                <div className="activity" onClick={() => { setActivityId(data.id) }}>
+                                <div className="activity" onClick={() => {
+                                    setActivityId(activityId === data.id ? '' : data.id);
+                                }}>
                                     <div className="activity-detail">
 
                                         <p className='user-activity-name'>

@@ -6,19 +6,24 @@ import { ChartCanvas, Chart } from "react-stockcharts";
 import { BarSeries } from "react-stockcharts/lib/series";
 import { XAxis, YAxis } from "react-stockcharts/lib/axes";
 import { fitWidth } from "react-stockcharts/lib/helper";
+import {
+    CrossHairCursor,
+    // MouseCoordinateX,
+    // MouseCoordinateY
+} from "react-stockcharts/lib/coordinates";
 
 const StockBarChart = ({ data: unsortedData, type = "svg", width, ratio }) => {
     const data = unsortedData.slice();
     const barWidth = 60;
     const spacing = 20;
     const canvasWidth = unsortedData.length * (barWidth + spacing);
-    const chartHeight = 400;
+    const chartHeight = 1061;
     return (
         <div
             style={{
                 width: "100%",
                 overflowX: "auto",
-                border: "1px solid #ccc",
+                // border: "1px solid #ccc",
                 paddingBottom: "10px",
             }}
         >
@@ -30,13 +35,17 @@ const StockBarChart = ({ data: unsortedData, type = "svg", width, ratio }) => {
                 type={type}
                 xExtents={(list) => list.map((d) => d.x)}
                 data={data}
+                mouseMoveEvent={true}
+                panEvent={true}
+                zoomEvent={true}
+                clamp={false}
                 xAccessor={(d) => d.x}
                 yAccessor={(d) => d.y}
                 xScale={scalePoint()}
                 yScale={scalePoint()}
                 padding={1}
             >
-                <Chart id={1} height={300} yExtents={(d) => [0, d.y1 + d.y2]} >
+                <Chart id={1} height={861} yExtents={(d) => [0, d.y1 + d.y2 + d.y3]} >
                     <XAxis axisAt="bottom" orient="bottom" />
                     <YAxis axisAt="left" orient="left" />
                     <BarSeries
@@ -55,6 +64,7 @@ const StockBarChart = ({ data: unsortedData, type = "svg", width, ratio }) => {
                         width={barWidth}
                     />
                 </Chart>
+                <CrossHairCursor />
             </ChartCanvas>
         </div>
     );
