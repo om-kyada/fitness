@@ -1,0 +1,31 @@
+@media (max-width: 768px) {
+  .login-container .login-box {
+    padding: 30px 20px;
+  }
+  .login-container .login-box h1 {
+    font-size: 20px;
+  }
+  .login-container .login-box .subtitle {
+    font-size: 12px;
+  }
+  .login-container .login-box .form-group input {
+    padding: 10px;
+  }
+  .login-container .login-box .login-button {
+    padding: 10px;
+  }
+}
+@media (max-width: 480px) {
+  .login-container {
+    padding: 10px;
+  }
+  .login-container .login-box {
+    padding: 20px 15px;
+  }
+  .login-container .login-box .form-group label {
+    font-size: 12px;
+  }
+  .login-container .login-box .additional-options {
+    font-size: 12px;
+  }
+}/*# sourceMappingURL=login-responsive.css.map */

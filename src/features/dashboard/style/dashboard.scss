@@ -1,15 +1,50 @@
+// Variables
+$primary-bg: #eaeaea;
+$white: #fff;
+$black: #000;
+$shadow-color: #c6bebe;
+$border-radius: 17px;
+$header-padding: 7px 30px;
+$grid-padding: 15px 30px;
+$grid-gap: 30px;
+$activity-border: 2px solid #eaeaea;
+$error-color: #dc3545;
+$error-hover: #c82333;
+
+// Mixins
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin box-shadow {
+    box-shadow: 0px 0px 59px $shadow-color;
+}
+
+@mixin card-style {
+    @include box-shadow;
+    border-radius: $border-radius;
+    background-color: $white;
+}
+
+// Main Styles
 .fitness-container {
     width: 100%;
-    height: 100vh;
-    background-color: #eaeaea;
+    // height: 100vh;
 
     header {
-        padding: 7px 30px;
+        padding: $header-padding;
+        position: sticky;
+        top: 0;
+        z-index: 10;
         width: 100%;
         height: auto;
         display: flex;
         justify-content: space-between;
+        background-color: $white;
         align-items: center;
+        box-shadow: 0px 0px 9px $shadow-color;
 
         .header-left-content {
             width: 50%;
@@ -26,17 +61,14 @@
             width: 50%;
             display: flex;
             justify-content: flex-end;
+            align-items: center;
 
             .user-content {
-                box-shadow: 0px 0px 59px #c6bebe;
                 padding: 15px 30px;
-                display: flex;
                 column-gap: 15px;
-                justify-content: center;
-                align-items: center;
+                @include flex-center;
                 width: fit-content;
-                background-color: #fff;
-                border-radius: 17px;
+                border-radius: $border-radius;
 
                 .user-photo {
                     width: 50px;
@@ -60,88 +92,63 @@
                     }
                 }
             }
+            .logout-button {
+                padding: 8px 16px;
+                height: 100%;
+                background-color: $white;
+                color: $black;
+                @include flex-center;
+                gap: 12px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                // margin-left: 20px;
+                transition: background-color 0.3s ease;
+            }
         }
     }
 
     .grid-container {
         display: grid;
-        padding: 15px 30px;
+        padding: $grid-padding;
         margin: 0 auto;
         grid-template-columns: repeat(auto-fill, minmax(auto, 1fr));
-        gap: 30px;
+        gap: $grid-gap;
 
-        .user-age-detail {
-            box-shadow: 0px 0px 59px #c6bebe;
-            display: flex;
-            align-items: center;
-            height: 60px;
-            justify-content: space-between;
-            padding: 15px 30px;
-            border-radius: 17px;
-            background-color: #fff;
-
-            .user-age {
-                font-size: 20px;
-            }
-
-            .age-detail {
-                font-size: 20px;
-            }
-        }
-
-        .user-height-detail {
-            box-shadow: 0px 0px 59px #c6bebe;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            height: 60px;
-            padding: 15px 30px;
-            border-radius: 17px;
-            background-color: #fff;
-
-            .user-height {
-                font-size: 20px;
-            }
-
-            .height-detail {
-                font-size: 20px;
-            }
-        }
-
+        .user-age-detail,
+        .user-height-detail,
         .user-weight-detail {
-            box-shadow: 0px 0px 59px #c6bebe;
+            @include card-style;
             display: flex;
             align-items: center;
             justify-content: space-between;
             height: 60px;
-            padding: 15px 30px;
-            border-radius: 17px;
-            background-color: #fff;
+            padding: $grid-padding;
 
-            .user-weight {
-                font-size: 20px;
-            }
-
+            .user-age,
+            .user-height,
+            .user-weight,
+            .age-detail,
+            .height-detail,
             .weight-detail {
                 font-size: 20px;
             }
         }
 
         .user-activitys {
-            box-shadow: 0px 0px 59px #c6bebe;
-            grid-area: 1 / 4 / 3 / 5;
-
+            @include card-style;
+            grid-area: 1/4/3/5;
             overflow-y: scroll;
             height: 470px;
+            width: 415px;
             display: flex;
             flex-direction: column;
-            padding: 15px 30px;
-            border-radius: 17px;
-            background-color: #fff;
+            padding: $grid-padding;
 
             .activity {
                 padding: 15px 0px;
-                border-bottom: 2px solid #eaeaea;
+                cursor: pointer;
+                border-bottom: $activity-border;
 
                 &:last-child {
                     border-bottom: none;
@@ -152,10 +159,7 @@
                     align-items: center;
                     justify-content: space-between;
 
-                    .user-activity-name {
-                        font-size: 20px;
-                    }
-
+                    .user-activity-name,
                     .user-activity-timing {
                         font-size: 20px;
                     }
@@ -171,10 +175,8 @@
                             list-style: none;
                             margin: 0px 30px;
 
-                            p {
-                                span {
-                                    font-weight: 600;
-                                }
+                            p span {
+                                font-weight: 600;
                             }
                         }
                     }
@@ -183,12 +185,11 @@
         }
 
         .chart {
-            box-shadow: 0px 0px 59px #c6bebe;
+            @include card-style;
             width: 100%;
+            min-width: 770px;
             margin: 0 auto;
-            border-radius: 17px;
-            background-color: #fff;
-            grid-column: 1 / 4;
+            grid-column: 1/4;
         }
     }
 }

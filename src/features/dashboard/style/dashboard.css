@@ -63,64 +63,49 @@
   grid-template-columns: repeat(auto-fill, minmax(auto, 1fr));
   gap: 30px;
 }
-.fitness-container .grid-container .user-age-detail {
-  box-shadow: 0px 0px 59px #c6bebe;
-  display: flex;
-  align-items: center;
-  height: 60px;
-  justify-content: space-between;
-  padding: 15px 30px;
-  border-radius: 17px;
-  background-color: #fff;
-}
-.fitness-container .grid-container .user-age-detail .user-age {
-  font-size: 20px;
-}
-.fitness-container .grid-container .user-age-detail .age-detail {
-  font-size: 20px;
-}
-.fitness-container .grid-container .user-height-detail {
-  box-shadow: 0px 0px 59px #c6bebe;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 60px;
-  padding: 15px 30px;
-  border-radius: 17px;
-  background-color: #fff;
-}
-.fitness-container .grid-container .user-height-detail .user-height {
-  font-size: 20px;
-}
-.fitness-container .grid-container .user-height-detail .height-detail {
-  font-size: 20px;
-}
+.fitness-container .grid-container .user-age-detail,
+.fitness-container .grid-container .user-height-detail,
 .fitness-container .grid-container .user-weight-detail {
   box-shadow: 0px 0px 59px #c6bebe;
+  border-radius: 17px;
+  background-color: #fff;
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 60px;
   padding: 15px 30px;
-  border-radius: 17px;
-  background-color: #fff;
 }
-.fitness-container .grid-container .user-weight-detail .user-weight {
-  font-size: 20px;
-}
+.fitness-container .grid-container .user-age-detail .user-age,
+.fitness-container .grid-container .user-age-detail .user-height,
+.fitness-container .grid-container .user-age-detail .user-weight,
+.fitness-container .grid-container .user-age-detail .age-detail,
+.fitness-container .grid-container .user-age-detail .height-detail,
+.fitness-container .grid-container .user-age-detail .weight-detail,
+.fitness-container .grid-container .user-height-detail .user-age,
+.fitness-container .grid-container .user-height-detail .user-height,
+.fitness-container .grid-container .user-height-detail .user-weight,
+.fitness-container .grid-container .user-height-detail .age-detail,
+.fitness-container .grid-container .user-height-detail .height-detail,
+.fitness-container .grid-container .user-height-detail .weight-detail,
+.fitness-container .grid-container .user-weight-detail .user-age,
+.fitness-container .grid-container .user-weight-detail .user-height,
+.fitness-container .grid-container .user-weight-detail .user-weight,
+.fitness-container .grid-container .user-weight-detail .age-detail,
+.fitness-container .grid-container .user-weight-detail .height-detail,
 .fitness-container .grid-container .user-weight-detail .weight-detail {
   font-size: 20px;
 }
 .fitness-container .grid-container .user-activitys {
   box-shadow: 0px 0px 59px #c6bebe;
+  border-radius: 17px;
+  background-color: #fff;
   grid-area: 1/4/3/5;
   overflow-y: scroll;
   height: 470px;
+  width: 415px;
   display: flex;
   flex-direction: column;
   padding: 15px 30px;
-  border-radius: 17px;
-  background-color: #fff;
 }
 .fitness-container .grid-container .user-activitys .activity {
   padding: 15px 0px;
@@ -134,9 +119,7 @@
   align-items: center;
   justify-content: space-between;
 }
-.fitness-container .grid-container .user-activitys .activity .activity-detail .user-activity-name {
-  font-size: 20px;
-}
+.fitness-container .grid-container .user-activitys .activity .activity-detail .user-activity-name,
 .fitness-container .grid-container .user-activitys .activity .activity-detail .user-activity-timing {
   font-size: 20px;
 }
@@ -154,9 +137,23 @@
 }
 .fitness-container .grid-container .chart {
   box-shadow: 0px 0px 59px #c6bebe;
-  width: 100%;
-  margin: 0 auto;
   border-radius: 17px;
   background-color: #fff;
+  width: 100%;
+  min-width: 770px;
+  margin: 0 auto;
   grid-column: 1/4;
+}
+.fitness-container .logout-button {
+  padding: 8px 16px;
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 20px;
+  transition: background-color 0.3s ease;
+}
+.fitness-container .logout-button:hover {
+  background-color: #c82333;
 }/*# sourceMappingURL=dashboard.css.map */
